@@ -1,0 +1,419 @@
+drop database Marvel_DC ;
+create database Marvel_DC2;
+use Marvel_DC2;
+drop table Powers;
+create table Powers
+(Power_ID varchar (30) PRIMARY KEY,
+Power_Name varchar (100)
+);
+drop table Marvel_Characters;
+create table Marvel_Characters
+(Character_Name varchar (20) PRIMARY KEY ,
+Character_Type varchar (15),
+Power_ID varchar (30),
+Gender varchar(255),
+Attributes varchar(255),
+Motive varchar(255),
+Weakness varchar(255)
+);
+drop table DC_Characters;
+create table DC_Characters
+(Character_Name varchar (20) PRIMARY KEY,
+Character_Type varchar (15),
+Power_ID varchar (30),
+Gender varchar(255),
+Attributes varchar(255),
+Motive varchar(255),
+Weakness varchar(255)
+);
+drop table Hero_Powers;
+create table Hero_Powers
+(Name varchar (200) PRIMARY KEY,
+Power_ID varchar (30));
+drop table Villain_Powers;
+create table Villain_Powers
+(Name varchar (200) PRIMARY KEY,
+Power_ID varchar (30));
+insert into Powers Values ('1' , 'Super strength');
+insert into Powers Values ('2' , 'flight');
+insert into Powers Values ('3' , 'Immortal');
+insert into Powers Values ('4' , 'Electricity');
+insert into Powers Values ('5' , 'Agility');
+insert into Powers Values ('6', 'Technical');
+insert into Powers Values ('7', 'Speed');
+insert into Powers Values ('8', 'Laser beams');
+insert into Powers Values ('9', 'Durability');
+insert into Powers Values ('10', 'Flames');
+insert into Powers Values ('11', 'Energy Blast');
+insert into Powers Values ('12', 'Stamina');
+insert into Powers Values ('13', 'Spidersense');
+insert into Powers Values ('14', 'Shapeshifter');
+insert into Powers Values ('15', 'Sharp teeth/claws');
+insert into Powers Values ('16', 'Regeneration');
+insert into Powers Values ('17', 'Skilled Martial Artist');
+insert into Powers Values ('18', 'Webs');
+insert into Powers Values ('19', 'Offensive weapons');
+insert into Powers Values ('20', 'Strong skin');
+insert into Powers Values ('21', 'Deadly touch');
+insert into Powers Values ('22', 'Controls weather');
+insert into Powers Values ('23', 'Physical condition');
+insert into Powers Values ('24', 'Toxic blood');
+insert into Powers Values ('25', 'Immune to chemicals');
+insert into Powers Values ('26', 'Skilled marksman');
+insert into Powers Values ('27', 'Advanced healing');
+insert into Powers Values ('28', 'Creative mind');
+insert into Powers Values ('29', 'Lasso of truth');
+insert into Powers Values ('30', 'Controls the ocean');
+insert into Powers values ('31', 'Telepathic');
+insert into Marvel_Characters Values ('Captain America', 'Hero', '1', 'Male',
+'Bold/fearless, young, strong, avengers', 'Protecting others/Stopping Hydra', 'Not
+immortal');
+insert into Marvel_Characters Values ('Iron Man', 'Hero', '2', 'Male', 'Genius,
+technical, strong, avengers', 'Protecting others/making the world a safer place,
+and atone for mistakes', 'Cocky, constant recharge');
+insert into Marvel_Characters Values ('Hulk', 'Hero', '1', 'Male', 'Genius,
+technical, strong, nerdy, avengers', 'N/A', 'Violent, angry, no control');
+insert into Marvel_Characters Values ('Spider-Man','Hero', '18', 'Male',
+'scientist, strong, nerdy, young', 'Protecting aunt May', 'Young, inexperienced');
+insert into Marvel_Characters Values ('Thor', 'Hero', '4','Male', 'strong, god of
+thunder, wields a hammer called Mjolnir, short tempered', 'Protecting Asgard and
+theAsgardian race', 'Using Mjonlnir');
+insert into Marvel_Characters Values ('Black Panther', 'Hero','1', 'Male','King of
+Wakanda', 'Protecting Wakanda', 'Strong nationalism');
+insert into Marvel_Characters Values ('Professor X', 'Hero','31','Male','Founder of
+X Men, Mutant, peaceful, equality, bald, bound to a wheelchair' ,'Protecting other
+Mutants/Bringing mutants together','unable to walk due to spinal damage, has a dark
+side');
+insert into Marvel_Characters Values ('Cyclops','Hero', '8', 'Male','Young, brash,
+very noble, mutant, part of the X Men', 'To protect the school of Mutants/Protect
+Jean Grey', 'Has to wear glasses to protect others from his optic blast');
+insert into Marvel_Characters Values ('Beast', 'Hero', '1','Male', 'Blue haired,
+ape like, oversized hands/feet', 'Being apart of the Xmen/Protecting Proffessor
+Xavier', 'Cannot control transformation');
+insert into Marvel_Characters Values ('Wolverine', 'Hero','27', 'Male', 'mutant,
+part of the X Men, very short tempered, rough', 'To find a home/Get answers about
+his past', 'Using metal claws causes him pain');
+insert into Marvel_Characters Values ('Iceman', 'Hero','19','Male', 'Mutant,
+young', 'To learn to control his powers and become an X Men', 'young, brash,
+cocky');
+insert into Marvel_Characters Values ('Captain Marvel', 'Hero','2','Female',
+'Blonde hair, young, sweet','To protect the Earth', 'Struggles with controlling her
+powers' );
+insert into Marvel_Characters Values ('Stan Lee', 'Hero','28','Male', 'Creative
+mind, generous, genius','To inspire a generation with his characters', 'None' );
+insert into Marvel_Characters Values ('She Hulk', 'Hero','1','Female', 'Green skin,
+purple hair', 'To protect Hulk','Her rage');
+insert into Marvel_Characters Values ('Black Widow', 'Hero','26','Female', 'Red
+hair, black suit','Protecting the Avengers', 'Only human' );
+insert into Marvel_Characters Values ('Gamora','Hero', '17', 'Female','Guardians of
+the Galaxy,Thanos daughter','Defeating Thanos','Too harsh');
+insert into Marvel_Characters Values ('X23', 'Hero', '27', 'Female', 'Very young,
+violent, Wolverines daughter','Protecting Wolverine','Reluctant/stubborn, short
+tempered' );
+insert into Marvel_Characters Values ('DareDevil', 'Hero','17','Male', 'Blind,
+Lawyer,','Revenge against those who killed his father', 'Blind' );
+insert into Marvel_Characters Values ('Doctor Strange', 'Hero','2','Male',
+'Sorcerer, Surgeon',' Protecting Earth from evil magic', 'Having to say his spells
+aloud' );
+insert into Marvel_Characters Values ('Hawkeye', 'Hero','26', 'Male','Avengers,
+young, brown hair', 'Protecting the Earth against Ultron and Thanos','Limited
+Arrows' );
+insert into Marvel_Characters Values ('Jean Grey','Hero', '1', 'Female','Mutant,
+caring, nurturing, red hair','Protecting the X Men, including Charles Xavier and
+her husband Cyclops','Emotionally unstable' );
+insert into Marvel_Characters Values ('Rogue', 'Hero', '21','Female', 'Mutant, X
+Men, teenager, white strands of hair', 'Wanting to find a home', 'Powers are
+unstable,steals the memories of others' );
+insert into Marvel_Characters Values ('Nightcrawler','Hero', '7', 'Male', 'Mutant,
+indigo colored skin, velvet fur, long tail, pointed ears', 'Wanting to find a place
+to stay/become an X Men', 'Still susceptible to disease/injury' );
+insert into Marvel_Characters Values ('Deadpool', 'Hero','26', 'Male', 'reckless,
+goofy, parody of deathstroke', 'Getting paid', 'Gamma Radiation' );
+insert into Marvel_Characters Values ('Storm', 'Hero', '22','Female','White hair,
+solid white eyes, Mutant', 'Finding a place to belong after losing her parents at a
+young age', 'Fear of claustrophobia' );
+insert into Marvel_Characters Values ('Human Torch', 'Hero', '10','Male',
+'Fantastic Four, cocky, young', 'Was involved in a lab accident with the rest of
+his team', 'Water' );
+insert into Marvel_Characters Values ('The Thing', 'Hero', '1','Male', 'Fantastic
+Four, bulky, rocky appearance','Was involved in a lab accident with the rest of his
+team', 'None' );
+insert into Marvel_Characters Values ('Mister Fantastic', 'Hero','6','Male',
+'Fantastic Four, Leader, Doctor','Was involved in a lab accident with the rest of
+his team', 'Any shock to his body' );
+insert into Marvel_Characters Values ('Invisible Girl', 'Hero', '6','Female',
+'Fantastic Four, blonde hair','None' ,'Was involved in a lab accident with the rest
+of his team');
+insert into Marvel_Characters Values ('Bucky Barnes', 'Hero', '1','Male', 'Winter
+Soldier, assassin, long brown hair, robotic arm','To find Captain America/Win the
+war', 'Troubled past' );
+insert into Marvel_Characters Values ('Luke Cage','Hero','1', 'Male', 'Ex-convict,
+defender of New York, quite and subtle', 'To protect himself and the citizens of
+New York', 'None' );
+insert into Marvel_Characters Values ('Ultron', 'Villain', '19','N/A', 'Cold/shows
+no mercy','Destroying all human life', 'N/A');
+insert into Marvel_Characters Values ('Thanos', 'Villain', '1', 'Male', 'Cold/shows
+no mercy', 'Destroying all human life', 'N/A');
+insert into Marvel_Characters Values ('Magneto', 'Villain','19', ' Male', 'Mutant,
+red helmet/purple cape, Holocaust survivor', 'To protect mutants and to make them
+the supior species', 'Low physical condition/advanced age' );
+insert into Marvel_Characters Values ('Apocalypse', 'Villain', '1', 'N/A', 'Mutant,
+worlds first mutant, blue skin','To create a new world', 'None' );
+insert into Marvel_Characters Values ('Juggernaut', 'Villain','1', 'Male', 'Mutant,
+bulky muscles, red armor', 'To join Magnetos Brotherhood', 'psionics and mysticism'
+);
+insert into Marvel_Characters Values ('Doctor Octopus', 'Villain', '6', 'Male',
+'Nerdy, Genius, mad scientist, stocky, Sinister Six', 'None', 'A failing body' );
+insert into Marvel_Characters Values ('Electro', 'Villain', 'Male', '4',
+'Electrical engineer/lineman Sinister Six' ,'None','Water' );
+insert into Marvel_Characters Values ('Rhino', 'Villain', 'Male', '6', 'Thug,
+artificial skin covering','None', 'Overheating through armor' );
+insert into Marvel_Characters Values ('Vulture', 'Villain', 'Male', '2', 'Bald, old
+age, engineer, Sinister Six', 'Revenge against the company who fired him',
+'Cancer');
+insert into Marvel_Characters Values ('Venom', 'Villain', 'N/A', '12', 'Alien
+symbiote, razor sharp teeth', 'To find a human host', 'Rejection' );
+insert into Marvel_Characters Values ('Kingpin', 'Villain','1', 'Male', 'Very
+large, large hands, violent, mobster', 'Getting revenge on Spiderman', 'None' );
+insert into Marvel_Characters Values ('Carnage', 'Villain', '12', 'N/A','Alien
+symbiote, razor sharp teeth, red', 'To find a human host', 'Rejection');
+insert into Marvel_Characters Values ('Sandman', 'Villain', '20', 'Male', 'Convict,
+sand', 'To get out of jail and see his daughter', 'Water' );
+insert into Marvel_Characters Values ('Mysterio', 'Villain', '14', 'Male', 'Failed
+actor/gifted special effects artist', 'Traveled to Earth in order to vanquish the
+Elementals', 'None' );
+insert into Marvel_Characters Values ('Scorpion', 'Villain', '19', 'Male',
+'Sinister Six, long scorpion tail, large stinger','To find out Peter Parkers secret
+identity', 'None' );
+insert into Marvel_Characters Values ('Loki', 'Villain', '14', 'Male', 'Cunning,
+trickster, Thors brother', 'To rule Asgard', 'Hulk/Bruce Banner' );
+insert into Marvel_Characters Values ('Dr. Doom', 'Villain', '4', 'Male',
+'Fantastic Four, silver mask, green cape/hood','None', 'None' );
+insert into Marvel_Characters Values ('Red Skull', 'Villain', '6', 'Male', 'Red,
+nazi agent, archenemy to Captain America','Ruler of Hydra', 'Exposed cartilage' );
+insert into Marvel_Characters Values ('Sabretooth', 'Villain', '15', 'Male', 'Enemy
+of Wolverine, alliance with Magneto, mutant', 'None', 'None' );
+insert into Marvel_Characters Values ('Mystique', 'Villain', '14', 'Female', 'Blue
+skin, red hair, yellow eyes', 'To belong in society', 'Limited powers' );
+insert into Marvel_Characters Values ('Green-Goblin', 'Villain', '2', 'Male',
+'Norman Osborn, green armor, hovercraft', 'To kill Spiderman', 'Obsessed with
+killing Spiderman' );
+insert into DC_Characters Values ('Batman','Hero','6', 'Male', 'Wayne family
+member, millionaire', 'To protect Gotham/Avenge his parents', 'No real
+superpowers' );
+insert into DC_Characters Values ('SuperMan', 'Hero','1','Male', 'Red cape, blue
+suit, black hair', 'To protect Metropolis', 'Kryptonite' );
+insert into DC_Characters Values ('Robin', 'Hero','17', 'Male','Young, Batmans
+sidekick, Teen titans', 'To help Batman', 'Inexperienced' );
+insert into DC_Characters Values ('Cyborg', 'Hero','6','Male','Robotic body and
+limbs, young, Teen titans','To be a part of the Teen Titans', 'Body needs charging'
+);
+insert into DC_Characters Values ('Beastboy', 'Hero','14','Male', 'Young, Teen
+titans, green skin, purple suit','To be a part of the Teen titans', 'Naive' );
+insert into DC_Characters Values ('Starfire', 'Hero','11','Female', 'From Tamaran,
+long red hair, green eyes', 'To find a home, and be a Teen titan', 'short
+tempered');
+insert into DC_Characters Values ('Raven', 'Hero','2','Female', 'Dark purple cloak,
+pale skin, purple hair', 'To protect the world from Trigon, her father', 'short
+tempered' );
+insert into DC_Characters Values ('Aquaman', 'Hero','30','Male', 'Teen titans,
+blonde hair, orange suit', 'To protect the creatures of the ocean', 'If no water is
+around he will die' );
+insert into DC_Characters Values ('Wonder-Woman','Hero','31', 'Female', 'From the
+Amazon island Themyscira, princess', 'To protect the Earth/Justice League', 'Her
+Bracelets' );
+insert into DC_Characters Values ('NightWing','Hero','17', 'Male', 'Blue/black
+suit, long black hair','To protect Gotham', 'Young, brash' );
+insert into DC_Characters Values ('Batman Beyond', 'Hero','6','Male', 'Young, punk,
+black batman suit', 'To protect Gotham', 'Brash, short tempered' );
+insert into DC_Characters Values ('Arrow', 'Hero','26','Male', 'Green suit, bow and
+arrow, blonde hair','To protect Star City', 'Cocky' );
+insert into DC_Characters Values ('Shazam', 'Hero','1','Male','Red suit, muscular,
+gold cape','None', 'Spell Casting Confusion' );
+insert into DC_Characters Values ('Flash', 'Hero','7','Male','Red suit, yellow
+flash symbol', 'To protect Central City', 'Too nice' );
+insert into DC_Characters Values ('Green Lantern', 'Hero','19','Male', 'Green and
+white suit, brown hair, lantern', 'To protect the Green Lantern Association', 'His
+own willpower');
+insert into DC_Characters Values ('Batwoman', 'Hero','6','Female', 'Red hair, black
+and gold suit','Protecting Batman', 'Young' );
+insert into DC_Characters Values ('Terra', 'Hero','19','Female', 'Blonde
+Hair' ,'Wanting to be a part of the Teen titans', 'Cannot control her powers' );
+insert into DC_Characters Values ('Martian Manhunter', 'Hero','2','N/A', 'Green
+Skin, blue cape','To protect the Justice League', 'Fire' );
+insert into DC_Characters Values ('Wally West', 'Hero','7','Male', 'Kid Flash,
+yellow and red suit', 'To be like the Flash', 'Too nice' );
+insert into DC_Characters Values ('Black Lightning', 'Hero','4','Male','Blue and
+yellow suit', 'To protect his family', 'Human limitations' );
+insert into DC_Characters Values ('Firestorm', 'Hero','10','Male', 'Red suit,
+flames on the top of his head', 'To protect his family', 'cant affect organic
+material');
+insert into DC_Characters Values ('Hawkgirl', 'Hero','2','Female', 'Red hair,
+wings', 'To protect the Justice League', 'Human limitations' );
+insert into DC_Characters Values ('Static Shock', 'Hero','4','Male', 'Blue and
+black suit','To protect his family', 'Human limitations' );
+insert into DC_Characters Values ('Supergirl', 'Hero','1','Female', 'Red cape, blue
+suit, black hair', 'To protect Metropolis', 'Kryptonite');
+insert into DC_Characters Values ('Robin #3', 'Hero','17','Male', 'Young, third
+Robin','To protect Batman','Inexperienced' );
+insert into DC_Characters Values ('Robin #2', 'Hero','17','Male', 'Young, second
+Robin','To protect Batman','Inexperienced' );
+insert into DC_Characters Values ('Batgirl', 'Hero','17','Female', 'Red hair, black
+and gold suit','Protecting Batman', 'Young');
+insert into DC_Characters Values ('Robin #4', 'Hero','17','Male' ,'Young, fourth
+Robin', 'To protect Batman, his dad','Inexperienced' );
+insert into DC_Characters Values ('Black Canary','Hero','5', 'Female', 'Blonde
+hair, black suit', 'None', 'Hesitant' );
+insert into DC_Characters Values ('Swamp Thing', 'Hero','1','Male', 'Green swamp
+like skin', 'None', 'Pollution' );
+insert into DC_Characters Values ('Miss Martian','Hero','2', 'Female', 'Red hair,
+white and red clothing','To protect her race', 'Fire' );
+insert into DC_Characters Values ('Joker', 'Villain','24', 'Male', 'Green hair,
+white skin, big smile','One bad day','pride' );
+insert into DC_Characters Values ('Harley Quinn', 'Villain','25', 'Female', 'white
+skin, big smile, red/black jestor costume', 'Loves the Joker','Insane' );
+insert into DC_Characters Values ('Poison Ivy', 'Villain','6','Female', 'Green
+skin, red hair','Protecting all plants', 'Insanity' );
+insert into DC_Characters Values ('Penguin', 'Villain', '6', 'Male', 'Small, fat,
+obsessed with birds', 'To defeat Batman', 'Pride' );
+insert into DC_Characters Values ('Clay Face', 'Villain','20','Male', 'Giant, blob,
+clay-skin', 'None','Electricity' );
+insert into DC_Characters Values ('Two Face','Villain', '6', 'Male', 'Half burnt
+face, black and white suit' ,'To kill Batman', 'Pride' );
+insert into DC_Characters Values ('Killer Croc','Villain', '20','N/A', 'Giant,
+green scaley skin, sharp teeth', 'To kill Batman', 'Low intellect');
+insert into DC_Characters Values ('Doomsday', 'Villain','3', 'N/A', 'Giant, rocky
+skin, red eyes', 'None', 'To kill Superman' );
+insert into DC_Characters Values ('Lex Luther', 'Villain','6', 'Male', 'Genius,
+technical', 'To kill Superman', 'Pride' );
+insert into DC_Characters Values ('Darkseid', 'Villain', '3', 'N/A', 'Blue body,
+gray face, red eyes', 'To destroy Earth', 'Radion');
+insert into DC_Characters Values ('Brainiac', 'Villain','6', 'N/A', 'Green skin,
+cables running from his body','To destroy Earth', 'Inability to fight bacteria' );
+insert into DC_Characters Values ('Riddler', 'Villain','6', 'Male','Green Suit,
+gold cane, red hair' ,'To outsmart Batman', 'OCD for riddles' );
+insert into DC_Characters Values ('Bane', 'Villain','1', 'Male', 'Giant muscles,
+wrestler, spanish' ,'None', 'Using Venom' );
+insert into DC_Characters Values ('Mr. Freeze','Villain','21', 'Male', 'Blue skin,
+supersuit, ice cold skin', 'To bring back his wife Nora', 'Body must be kept at
+subzero');
+insert into DC_Characters Values ('Scarecrow', 'Villain','14', 'Male', 'Doctor,
+scarecrow costume', 'To break Batman', 'Fear' );
+insert into DC_Characters Values ('General Zod', 'Villain','6', 'Male', 'Military
+like, kryptonian', 'To kill Superman', 'Weak under a yellow sun');
+insert into DC_Characters Values ('Deadshot', 'Villain','26', 'Male','White helmet,
+suicide squad, white/red armor' ,'Getting a paycheck', 'Has a deathwish' );
+insert into DC_Characters Values ('Atrocitus','Villain', '1','N/A', 'Red skin,
+horns', 'To destroy Green Lantern Association', 'His ring holds a limited
+charge' );
+insert into DC_Characters Values ('Trigon', 'Villain','3', 'N/A', 'Red skin, white
+hair, red eyes, giant','To bring chaos, and break Raven', 'None' );
+insert into DC_Characters Values ('Blight', 'Villain','11', 'Male','Neon green
+glowing skin, business like', 'To get revenge on Batman Beyond', 'None' );
+insert into DC_Characters Values ('Dee Dee', 'Villain','12', 'Female', 'Red hair,
+white hat, twins, red clothing', 'To be like their grandmother Harley Quinn',
+'Stupidity, naive' );
+insert into Hero_Powers Values ('Captain America', '1');
+insert into Hero_Powers Values ('Iron Man', '2');
+insert into Hero_Powers Values ('Hulk', '1');
+insert into Hero_Powers Values ('Spider-Man', '18');
+insert into Hero_Powers Values ('Thor', '4');
+insert into Hero_Powers Values ('Black Panther', '1');
+insert into Hero_Powers Values ('Professor X', '31');
+insert into Hero_Powers Values ('Cyclops', '8');
+insert into Hero_Powers Values ('Beast', '1');
+insert into Hero_Powers Values ('Wolverine', '27');
+insert into Hero_Powers Values ('Iceman', '19');
+insert into Hero_Powers Values ('Captain Marvel', '2');
+insert into Hero_Powers Values ('Stan Lee', '28');
+insert into Hero_Powers Values ('She Hulk', '1');
+insert into Hero_Powers Values ('Black Widow', '26');
+insert into Hero_Powers Values ('Gamora', '17');
+insert into Hero_Powers Values ('X23', '27');
+insert into Hero_Powers Values ('DareDevil', '17');
+insert into Hero_Powers Values ('Doctor Strange', '2');
+insert into Hero_Powers Values ('Hawkeye', '26');
+insert into Hero_Powers Values ('Jean Grey', '1');
+insert into Hero_Powers Values ('Rogue', '21');
+insert into Hero_Powers Values ('Nightcrawler', '7');
+insert into Hero_Powers Values ('Deadpool', '26');
+insert into Hero_Powers Values ('Storm', '22');
+insert into Hero_Powers Values ('Human Torch', '10');
+insert into Hero_Powers Values ('The Thing', '1');
+insert into Hero_Powers Values ('Mister Fantastic', '6');
+insert into Hero_Powers Values ('Invisible Girl', '6');
+insert into Hero_Powers Values ('Bucky Barnes', '1');
+insert into Hero_Powers Values ('Luke Cage', '1');
+insert into Hero_Powers Values ('Batman', '6');
+insert into Hero_Powers Values ('SuperMan', '1');
+insert into Hero_Powers Values ('Robin', '17');
+insert into Hero_Powers Values ('Cyborg', '6');
+insert into Hero_Powers Values ('Beastboy', '14');
+insert into Hero_Powers Values ('Starfire', '11');
+insert into Hero_Powers Values ('Raven', '2');
+insert into Hero_Powers Values ('Aquaman', '30');
+insert into Hero_Powers Values ('Wonder-Woman', '29');
+insert into Hero_Powers Values ('NightWing', '17');
+insert into Hero_Powers Values ('Batman Beyond', '6');
+insert into Hero_Powers Values ('Arrow', '26');
+insert into Hero_Powers Values ('Shazam', '1');
+insert into Hero_Powers Values ('Flash', '7');
+insert into Hero_Powers Values ('Green Lantern', '19');
+insert into Hero_Powers Values ('Batwoman', '6');
+insert into Hero_Powers Values ('Terra', '19');
+insert into Hero_Powers Values ('Martian Manhunter', '2');
+insert into Hero_Powers Values ('Wally West', '7');
+insert into Hero_Powers Values ('Black Lightning', '4');
+insert into Hero_Powers Values ('Firestorm', '10');
+insert into Hero_Powers Values ('Hawkgirl', '2');
+insert into Hero_Powers Values ('Static Shock', '4');
+insert into Hero_Powers Values ('Supergirl', '1');
+insert into Hero_Powers Values ('Robin #3', '17');
+insert into Hero_Powers Values ('Robin #2', '17');
+insert into Hero_Powers Values ('Batgirl', '6');
+insert into Hero_Powers Values ('Robin #4', '17');
+insert into Hero_Powers Values ('Black Canary', '5');
+insert into Hero_Powers Values ('Swamp Thing', '1');
+insert into Hero_Powers Values ('Miss Martian', '2');
+insert into Villain_Powers Values ('Ultron', '19');
+insert into Villain_Powers Values ('Thanos', '1');
+insert into Villain_Powers Values ('Magneto', '19');
+insert into Villain_Powers Values ('Apocalypse', '1' );
+insert into Villain_Powers Values ('Juggernaut', '1' );
+insert into Villain_Powers Values ('Doctor Octopus', '6' );
+insert into Villain_Powers Values ('Electro', '4' );
+insert into Villain_Powers Values ('Rhino', '6');
+insert into Villain_Powers Values ('Vulture', '2' );
+insert into Villain_Powers Values ('Venom', '15');
+insert into Villain_Powers Values ('Kingpin', '1' );
+insert into Villain_Powers Values ('Carnage', '15');
+insert into Villain_Powers Values ('Sandman', '20' );
+insert into Villain_Powers Values ('Mysterio', '14' );
+insert into Villain_Powers Values ('Scorpion', '19');
+insert into Villain_Powers Values ('Loki', '14' );
+insert into Villain_Powers Values ('Dr. Doom', '4' );
+insert into Villain_Powers Values ('Red Skull', '6');
+insert into Villain_Powers Values ('Sabretooth', '15' );
+insert into Villain_Powers Values ('Mystique', '14');
+insert into Villain_Powers Values ('Green-Goblin', '2' );
+insert into Villain_Powers Values ('Joker', '24' );
+insert into Villain_Powers Values ('Harley Quinn', '25' );
+insert into Villain_Powers Values ('Poison Ivy', '21' );
+insert into Villain_Powers Values ('Penguin', '6' );
+insert into Villain_Powers Values ('Clay Face', '20' );
+insert into Villain_Powers Values ('Two Face', '6' );
+insert into Villain_Powers Values ('Killer Croc', '20');
+insert into Villain_Powers Values ('Doomsday', '3' );
+insert into Villain_Powers Values ('Lex Luther', '6' );
+insert into Villain_Powers Values ('Darkseid', '3');
+insert into Villain_Powers Values ('Brainiac', '6' );
+insert into Villain_Powers Values ('The Riddler', '6' );
+insert into Villain_Powers Values ('Bane', '1' );
+insert into Villain_Powers Values ('Mr. Freeze', '21' );
+insert into Villain_Powers Values ('Scarecrow', '14' );
+insert into Villain_Powers Values ('General Zod', '6');
+insert into Villain_Powers Values ('Deadshot', '26' );
+insert into Villain_Powers Values ('Atrocitus', '1' );
+insert into Villain_Powers Values ('Trigon', '3');
+insert into Villain_Powers Values ('Blight', '11');
+insert into Villain_Powers Values ('Dee Dee', '12' );
