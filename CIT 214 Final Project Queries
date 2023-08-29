@@ -1,0 +1,58 @@
+use Marvel_DC2;
+-- Question 1: List the villians in Marvel and their weakness.--
+select Character_Name, Weakness
+from Marvel_Characters
+where Character_Type = 'Villain';
+-- Question 2: List the hero name whose motive is to protect Wakanda.--
+select Character_Name, Motive
+from Marvel_Characters
+where Motive = 'Protecting Wakanda';
+-- Question 3: Find the Marvel Heroes who are Male and who have the super power of
+super strength. (Uses a compound condition)--
+select Character_Name, Power_Name
+from Marvel_Characters left join Powers on Marvel_Characters.Power_ID =
+Powers.Power_ID
+where Power_Name = 'Super strength'
+or Gender = 'Male';
+-- Question 4: List the Villian names that start with a 'J'. (Uses the like
+condition)--
+select Character_Name
+from DC_Characters
+WHERE Character_Name LIKE 'J%' ;
+-- Question 5: List the hero names who have no weakness in the Marvel universe. (Is
+an aggregate funxtion)--
+select Character_Name, Weakness
+from Marvel_Characters
+where Weakness = 'None';
+-- Question 6: List all the super powers and how many times they are listed in the
+entire database. (Uses group by condition)--
+select Power_Name, count(*)
+FROM Powers
+GROUP BY Power_Name;
+-- Question 7: List all the Marvel and DC Heroes in the database that have the
+attribute of being young. (Retrieves information from another table)--
+select Marvel_Characters.Attributes, DC_Characters.Attributes, Character_Name
+from DC_Characters
+inner join Marvel_Characters
+on DC_Characters.Attributes = Marvel_Characters.Attributes;
+-- Question 8: List all the DC Characters who have have thier gender listed as Male
+or N/A. (Uses the IN condition)--
+select * from DC_Characters
+where Gender in ('N/A', 'Male');
+-- Question 9: List all the Characters with long names (Is a subquery)
+select Character_Name
+from Marvel_Characters
+where Character_Name in
+(select Character_Name from Marvel_Characters where length(Character_Name) > 9);
+-- Question 10: List all the Marvel/DC power id numbers'. (Performs an Inner Join)
+select DC_Characters.Power_ID, Marvel_Characters.Power_ID
+from Marvel_Characters
+inner join DC_Characters
+on Marvel_Characters.Power_ID = DC_Characters.Power_ID;
+-- Question 11: List all the the female villains in the DC universe that are listed
+in the database. (Uses ANY condition)--
+select Character_Name, Character_Type
+from DC_Characters
+where Character_Name = any
+(select Character_Name from DC_Characters where Gender = 'Female' and
+Character_Type = 'Villain');
